@@ -1,7 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { INavigateSettings } from '../../Routes/model';
-import { NavBarLink, NawBarContainer } from './style';
+import { Logo, NavBarLink, NawBarContainer } from './style';
+import logo from '../../images/logo';
 
 interface Props {
   navigateSettings: INavigateSettings;
@@ -18,6 +19,7 @@ const Header: React.FC<Props> = (props: Props) => {
   }, [location]);
   return (
     <NawBarContainer>
+      <Logo>{logo}</Logo>
       {Object.keys(props.navigateSettings).map(key => (
         <NavBarLink
           key={'link' + props.navigateSettings[key].path}

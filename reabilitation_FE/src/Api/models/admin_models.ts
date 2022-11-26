@@ -1,3 +1,13 @@
+export interface IPermision {
+  role: Role;
+}
+
+export enum Role {
+  Admin = 'Admin',
+  Staff = 'Staff',
+  Doctor = 'Doctor',
+}
+
 export interface IUser {
   _id?: string;
   name: {
@@ -7,5 +17,5 @@ export interface IUser {
   birthday: Date;
   phone: string;
   email?: string;
-  
+  permision: IPermision;  
 }

@@ -17,3 +17,10 @@ export const staff_links: INavigateSettings = {
   main: { path: '/', name: 'Home' },
   patients: { path: 'patients', name: 'Patients' }
 };
+
+export interface GeneralLinks extends INavigateSettings {
+  login: INavigateSettingsItem;
+}
+export const general_links: INavigateSettings = {
+  login: { path: '/login', name: '' }
+};

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const NawBarContainer = styled.nav`
   width: 100%;
   height: 64px;
-  background: #506DB8;
+  background: var(--navBg);
   padding: 0px 20px;
   flex-shrink: 0;
   position: fixed;
@@ -21,7 +21,7 @@ export const NavBarLink = styled(Link)`
   font-size: 24px;
   display: inline-flex;
   align-items: center;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--textPrimary);
   padding: 12px 16px;
   border: none;
   border-bottom: 4px solid transparent;
@@ -29,7 +29,7 @@ export const NavBarLink = styled(Link)`
   transition-property: border-color, color;
   &:active,
   &.active {
-    color: rgba(255, 255, 255, 1);
+    color: var(--textPrimary);
   }
   &.active {
     border-bottom: 4px solid;
@@ -39,4 +39,10 @@ export const NavBarLink = styled(Link)`
     transition: 0.3s linear;
     transition-property: border-color, color;
   }
+`;
+
+export const Logo = styled.div`
+  width: 48px;
+  height: 48px;
+  margin: auto 16px auto 0;
 `;
