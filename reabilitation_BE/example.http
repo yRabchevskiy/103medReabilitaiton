@@ -1,0 +1,38 @@
+POST http://localhost:8080/api/user HTTP/1.1
+content-type: application/json
+
+{
+    "name": {
+        "first_name": "Johns",
+        "middle_name": "Ben",
+        "last_name": "Travolta"
+    },
+    "email": "test@test",
+    "phone_number": "1234556",
+    "gender": "mail",
+    "modification_notes": [{
+        "modified_on": "27.08.1989",
+        "modified_by": null,
+        "modification_note": "New user created"
+    }]
+}
+
+###
+GET http://localhost:8080/api/users HTTP/1.1
+content-type: application/json
+
+###
+GET http://localhost:8080/api/languages HTTP/1.1
+content-type: application/json
+
+###
+POST http://localhost:8080/api/language HTTP/1.1
+content-type: application/json
+
+{
+    "name": "ua-UA",
+    "title": "Ukraine",
+    "description": "",
+    "isDefault": false,
+    "keys": []
+}
