@@ -7,18 +7,15 @@ const bodyParser = require("body-parser");
 const environment_1 = require("../environment");
 const mongoose_1 = require("mongoose");
 const cors = require("cors");
-const language_routes_1 = require("./../routes/language_routes");
 class App {
     constructor() {
         this.mongoUrl = 'mongodb://localhost:27017/' + environment_1.default.getDBName();
         this.common_routes = new common_routes_1.CommonRoutes();
-        this.language_routes = new language_routes_1.LanguageRoutes();
         this.user_routes = new user_routes_1.UserRoutes();
         this.app = express();
         this.config();
         this.mongoSetup();
         this.user_routes.route(this.app);
-        this.language_routes.route(this.app);
         // should be the last
         this.common_routes.route(this.app);
     }

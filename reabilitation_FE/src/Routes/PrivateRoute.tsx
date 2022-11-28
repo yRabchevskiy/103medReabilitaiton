@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { Role } from '../Api/models/admin_models';
+import { AuthContext } from '../Contexts/auth/uaeAuthContext';
 import { general_links } from './routes_config';
 
 interface Props {
-  role: Role[]; 
+  role: Role[];
+  children: React.ReactNode;
 }
-const PrivateRoute: React.FC<Props> = (props: Props) => {
-  let auth = { 'token': true, role: Role.Staff }
+const PrivateRoute = (props: Props) => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   return (
-    auth.token && props.role.indexOf(auth.role) !== -1  ? <Outlet /> : <Navigate to={general_links.login.path} />
-  )
-}
+    <>{user && props.role.indexOf(user.permision) !== -1 ? props.children : <Navigate to={general_links.login.path} />}</>
+  );
+};
 
 export default PrivateRoute;

@@ -14,13 +14,15 @@ export interface StaffLinks extends INavigateSettings {
   patients: INavigateSettingsItem;
 }
 export const staff_links: INavigateSettings = {
-  main: { path: '/', name: 'Home' },
+  main: { path: '/home', name: 'Home' },
   patients: { path: 'patients', name: 'Patients' }
 };
 
 export interface GeneralLinks extends INavigateSettings {
   login: INavigateSettingsItem;
+  unknown: INavigateSettingsItem;
 }
 export const general_links: INavigateSettings = {
-  login: { path: '/login', name: '' }
+  login: { path: '/login', name: '' },
+  unknown: { path: '*', name: '' }
 };

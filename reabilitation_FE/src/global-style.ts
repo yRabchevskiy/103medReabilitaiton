@@ -19,6 +19,12 @@ const GlobalStyle = createGlobalStyle`
     overflow: auto;
   }
 
+  // PRIME REACT STYLES
+  .p-sidebar.createUserPanel {
+    .p-sidebar-header {
+      display: none;
+    }
+  }
 `;
 
 export default GlobalStyle;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FormWrapper, ImageBG, LoginFlexWrapper } from './style';
 import bg from '../../images/bg.jpg';
 import TextInput from '../../Components/Inputs/TextInput';
@@ -8,7 +8,7 @@ import { jsonClone } from '../../Utils/common';
 import { useNavigate } from 'react-router-dom';
 import { usePost } from '../../Api/service';
 import { IUser } from '../../Api/models/admin_models';
-import { useAuthContext } from '../../Contexts/auth/uaeAuthContext';
+import { AuthContext } from '../../Contexts/auth/uaeAuthContext';
 
 interface Props { }
 
@@ -20,19 +20,22 @@ interface LoginForm {
 const LoginPage: React.FC<Props> = (props: Props) => {
   const [loginData, setLoginData] = React.useState<LoginForm>({ login: '', password: '' });
   const { loading, response, error, onPost } = usePost<LoginForm, IUser>();
-  const { onSignIn } = useAuthContext();
+  const { user, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const loginRef = React.useRef<HTMLInputElement>(null);
   const passRef = React.useRef<HTMLInputElement>(null);
 
   React.useEffect(() => {
-    console.log(response);
     if (response) {
-      onSignIn(response, () => {
-        navigate('/', { replace: true });
-      });
+      setUser(response);
     }
   }, [response]);
+
+  React.useEffect(() => {
+    if (user) {
+      navigate('/admin');
+    }
+  }, [user]);
   
   const onLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

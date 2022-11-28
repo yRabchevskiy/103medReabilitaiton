@@ -1,26 +1,41 @@
+###
 POST http://localhost:8080/api/user HTTP/1.1
 content-type: application/json
 
 {
     "name": {
-        "first_name": "Johns",
-        "middle_name": "Ben",
-        "last_name": "Travolta"
+        "first_name": "Yurii",
+        "last_name": "Rabchevskiy"
     },
-    "email": "test@test",
-    "phone_number": "1234556",
-    "gender": "mail",
-    "modification_notes": [{
-        "modified_on": "27.08.1989",
-        "modified_by": null,
-        "modification_note": "New user created"
-    }]
+    "birthday": "1989-08-27T00:00:00.000Z",
+    "email": "yrabchevskiy@gmail.com",
+    "phone": "0670808080",
+    "gender": "Male",
+    "permision": "Admin",
+    "authData": {
+        "login": "yrabchevskiy@gmail.com",
+        "password": "!Test123"
+    },
+    "is_deleted": false
 }
+
+###
+POST http://localhost:8080/api/login HTTP/1.1
+content-type: application/json
+
+{
+    "login": "yrabchevskiy@gmail.com",
+    "password": "!Test123"
+}
+
+###
+POST http://localhost:8080/api/logout HTTP/1.1
+content-type: application/json
+
 
 ###
 GET http://localhost:8080/api/users HTTP/1.1
 content-type: application/json
-
 ###
 GET http://localhost:8080/api/languages HTTP/1.1
 content-type: application/json

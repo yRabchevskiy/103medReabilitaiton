@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthProvider } from './Contexts/auth/useAuthDataContext';
+import { AuthProvider } from './Contexts/auth/uaeAuthContext';
 import { GeneralProvider } from './Contexts/general/useGeneralDataContext';
 // import { FormattedMessage } from 'react-intl';
 import GlobalStyle from './global-style';
@@ -9,11 +9,11 @@ import AppRoutes from './Routes';
 const App: React.FC<{}> = () => {
   return (
     <>
-      <GeneralProvider>
-        <AuthProvider>
+      <AuthProvider>
+        <GeneralProvider>
           <AppRoutes />
-        </AuthProvider>
-      </GeneralProvider>
+        </GeneralProvider>
+      </AuthProvider>
       <GlobalStyle />
     </>
     // <div><FormattedMessage {...messages.hello} /></div>

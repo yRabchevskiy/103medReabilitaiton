@@ -27,5 +27,13 @@ export class UserRoutes {
       this.user_controller.delete_user(req, res);
     });
 
+    app.post('/api/login', (req: Request, res: Response) => {
+      this.user_controller.login(req, res);
+    });
+
+    app.post('/api/logout', (req: Request, res: Response) => {
+      this.user_controller.logout(req, res);
+    });
+
   }
 }

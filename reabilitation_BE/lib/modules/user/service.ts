@@ -3,6 +3,10 @@ import users from './schema';
 
 export default class UserService {
 
+  public loginUser(query: any, callback: any) {
+    users.findOne(query, callback);
+  }
+  
   public getUsers(callback: any) {
     users.find(callback);
   }

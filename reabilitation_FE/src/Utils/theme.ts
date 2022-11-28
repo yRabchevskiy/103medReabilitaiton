@@ -18,12 +18,28 @@ export const APP_THEME: ITheme = {
     '--logoFormBg': 'rgba(255, 255, 255, 0.4)',
     '--navBg': '#F3F6FC', //'#CBD2DC',
     '--textPrimary': '#000000',
+    // input
+    '--inputBg': '#ffffff',
+    '--inputBorder': '#dee2e6',
+    '--inputActive': '#3b82f6',
+    //State
+    '--success': '#4cd07d',
+    '--warning': '#fa8e42',
+    '--error': '#ff3d32',
   },
   dark: {
     '--appBg': 'black',
     '--logoFormBg': 'rgba(255, 255, 255, 0.4)',
     '--navBg': '#F3F6FC', //'#CBD2DC',
     '--textPrimary': '#ffffff',
+    // input
+    '--inputBg': '#ffffff',
+    '--inputBorder': '#dee2e6',
+    '--inputActive': '#3b82f6',
+    //State
+    '--success': '#4cd07d',
+    '--warning': '#fa8e42',
+    '--error': '#ff3d32',
   },
 };
 

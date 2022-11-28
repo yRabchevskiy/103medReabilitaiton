@@ -46,3 +46,9 @@ export const Logo = styled.div`
   height: 48px;
   margin: auto 16px auto 0;
 `;
+
+export const Logout = styled.div`
+  width: 32px;
+  height: 32px;
+  margin: auto 0 auto auto;
+`;

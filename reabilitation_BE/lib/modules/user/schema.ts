@@ -1,24 +1,58 @@
 import * as mongoose from 'mongoose';
-import { ModificationNote } from '../common/model';
 
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
   name: {
-    type: {
-      first_name: String,
-      middle_name: String,
-      last_name: String
+    first_name: {
+      type: String,
+      required: true
+    },
+    last_name: {
+      type: String,
+      required: true
+    }
+  },
+  birthday: {
+    type: Date,
+    default: Date.now,
+    validate: {
+      validator: function (params: string | Date) {
+        return new Date(params);
+      },
+      message: 'Incorrect birthday'
     }
   },
   email: String,
-  phone_number: String,
-  gender: String,
+  phone: {
+    type: String,
+    required: true
+  },
+  gender: {
+    type: String,
+    enum : ['Male','Famele'],
+    default: 'Male'
+  },
+  permision: {
+    type: String,
+    required: true,
+    enum : ['Admin','Staff','Doctor'],
+    default: 'Staff'
+  },
   is_deleted: {
     type: Boolean,
     default: false
   },
-  modification_notes: [ModificationNote]
+  authData: {
+    login: {
+        type: String,
+        required: true
+    },
+    password: {
+      type: String,
+      required: true
+    },
+  }
 });
 
 export default mongoose.model('users', schema);

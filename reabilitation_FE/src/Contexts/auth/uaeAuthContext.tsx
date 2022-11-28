@@ -1,26 +1,52 @@
-import React from 'react';
+import React, { createContext, useMemo } from 'react';
+import { IUser } from '../../Api/models/admin_models';
 
-export interface AuthContextType {
-  user: any;
-  onSignIn: (_user: any, callback: () => void) => void;
-  onSignOut: (callback: () => void ) => void;
+// export interface AuthDataContextType {
+//   user: IUser | null;
+//   onSignIn: (_user: IUser) => void;
+//   onSignOut: () => void;
+// }
+
+// function useAuthContext(): AuthDataContextType {
+//   const [user, setUser] = React.useState<IUser | null>(null);
+
+//   const onSignIn = (newUser: IUser) => {
+//     setUser(newUser);
+//   };
+
+//   const onSignOut = () => {
+//     setUser(null);
+//   };
+
+//   return {
+//     user,
+//     onSignIn,
+//     onSignOut,
+//   };
+// }
+
+// export default useAuthContext;
+
+interface IAuthContext {
+  user: IUser | null;
+  setUser: React.Dispatch<React.SetStateAction<IUser | null>>
 }
-export function useAuthContext(): AuthContextType {
-  const [user, setUser] = React.useState(null);   
+const AuthContext = createContext({} as IAuthContext);
 
-  const onSignIn = (newUser: any, callback: () => void) => {
-    setUser(newUser);
-    callback();
-  };
+const AuthProvider = (props: any) => {
+  const [user, setUser] = React.useState<IUser | null>(null);
 
-  const onSignOut = (callback: () => void) => {
-    setUser(null);
-    callback();
-  };
 
-  return {
-    user,
-    onSignIn,
-    onSignOut,
-  };
+  const value = useMemo(
+    () => ({ user, setUser, }), [user])
+
+
+  return (
+    <AuthContext.Provider
+      value={value as any}
+    >
+      {props.children}
+    </AuthContext.Provider>
+  );
 }
+export { AuthContext, AuthProvider };

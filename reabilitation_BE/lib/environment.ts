@@ -26,13 +26,13 @@ class Environment {
 
   getDBName(): String {
     if (this.environment === Environments.prod_environment) {
-      return 'languages';
+      return '103medReabilitation';
     } else if (this.environment === Environments.dev_environment) {
-      return 'languages';
+      return '103medReabilitation';
     } else if (this.environment === Environments.qa_environment) {
-      return 'languages';
+      return '103medReabilitation';
     } else {
-      return 'languages';
+      return '103medReabilitation';
     }
   }
 }

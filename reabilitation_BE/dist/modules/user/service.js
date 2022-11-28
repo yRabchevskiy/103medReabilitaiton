@@ -2,6 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const schema_1 = require("./schema");
 class UserService {
+    loginUser(query, callback) {
+        schema_1.default.findOne(query, callback);
+    }
     getUsers(callback) {
         schema_1.default.find(callback);
     }
