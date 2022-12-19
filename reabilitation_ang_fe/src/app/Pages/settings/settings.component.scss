@@ -1,0 +1,10 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+.theme-wrapper {
+    display: flex;
+    flex-shrink: 0;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,8 @@
+<div class="theme-wrapper">
+  <app-theme-item
+    *ngFor="let key of keys(themes)"
+    [name]="key"
+    [selected]="key === selectedTheme"
+    (onSelectChange)="onThemeChange($event)"
+  ></app-theme-item>
+</div>

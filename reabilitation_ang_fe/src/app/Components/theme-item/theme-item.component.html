@@ -1,0 +1,13 @@
+<div
+  class="them-item"
+  *ngIf="theme"
+  (click)="onClick($event)"
+  [ngStyle]="{
+    background: theme['--app-primary'],
+    'box-shadow': '0px 0px 16px 8px ' + theme['--app-box-shadow-color'],
+    'border-color': selected ? theme['--app-secondary'] : theme['--app-primary']
+  }"
+>
+  <h3 [ngStyle]="{ color: theme['--app-p-text'] }">{{ name }}</h3>
+  <!-- <p *ngFor="let item of keys(theme)">{{item}} : {{theme[item]}}</p> -->
+</div>

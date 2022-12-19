@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    background: var(--app-p-light);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+app-root {
+    display: flex;
+    flex: 1 0 100%;
+}
