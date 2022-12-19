@@ -12,7 +12,7 @@ const HomePage: React.FC<Props> = (props: Props) => {
   const [data, setData] = React.useState<ILanguage[] | null>(null);
   const { loading, response, error, onGet } = useGet<ILanguage[]>();
   const [selectedLang, setSelectedLang] = React.useState<ISelectedObject>({});
-  const { user, setUser } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   React.useEffect(() => {
     getLanguages();
   }, []);

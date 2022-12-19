@@ -50,5 +50,6 @@ export const Logo = styled.div`
 export const Logout = styled.div`
   width: 32px;
   height: 32px;
+  cursor: pointer;
   margin: auto 0 auto auto;
 `;

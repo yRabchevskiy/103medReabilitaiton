@@ -5,7 +5,7 @@ const ReactiveSelect = React.forwardRef(({ name, label, options, defaultSelected
   return (
     <Wrapper>
       <label htmlFor={name}>{label}</label>
-      <select name={name} {...rest} ref={ref}>
+      <select name={name} {...rest} ref={ref} defaultValue={defaultSelected}>
         {(options as string[]).map(it => <option selected={defaultSelected === it} value={it}>{it}</option>)}
       </select>
       <InputError>{children ? children : null}</InputError>

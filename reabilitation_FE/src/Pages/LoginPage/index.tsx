@@ -20,14 +20,14 @@ interface LoginForm {
 const LoginPage: React.FC<Props> = (props: Props) => {
   const [loginData, setLoginData] = React.useState<LoginForm>({ login: '', password: '' });
   const { loading, response, error, onPost } = usePost<LoginForm, IUser>();
-  const { user, setUser } = useContext(AuthContext);
+  const { user, onLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const loginRef = React.useRef<HTMLInputElement>(null);
   const passRef = React.useRef<HTMLInputElement>(null);
 
   React.useEffect(() => {
     if (response) {
-      setUser(response);
+      onLogin(response);
     }
   }, [response]);
 
@@ -37,7 +37,7 @@ const LoginPage: React.FC<Props> = (props: Props) => {
     }
   }, [user]);
   
-  const onLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  const onTryLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (loginRef.current?.value && passRef.current?.value) {  
       tryLogin({ login: loginRef.current?.value, password: passRef.current?.value })
@@ -61,7 +61,7 @@ const LoginPage: React.FC<Props> = (props: Props) => {
   return (
     <LoginFlexWrapper>
       <ImageBG src={bg} />
-      <FormWrapper onSubmit={onLogin} autoComplete="new-password">
+      <FormWrapper onSubmit={onTryLogin} autoComplete="new-password">
         <TextInput
           ref={loginRef}
           style={{ height: '64px', marginBottom: '20px', padding: '8px 16px', fontSize: '24px' }}

@@ -12,8 +12,8 @@ export const getToBase64 = (data: any) => {
   return toBase64(JSON.stringify(data));
 };
 
-const toBase64 = (str: string) => window.btoa(unescape(encodeURIComponent(str)));
-const fromBase64 = (str: string) => decodeURIComponent(escape(window.atob(str)));
+export const toBase64 = (str: string) => window.btoa(unescape(encodeURIComponent(str)));
+export const fromBase64 = (str: string) => decodeURIComponent(escape(window.atob(str)));
 
 export const selectUnselectObject = (obj: Object | null, value: any) => {
   const _obj = obj ? JSON.parse(JSON.stringify(obj)) : {};
