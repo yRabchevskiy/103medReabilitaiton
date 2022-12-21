@@ -7,6 +7,7 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       { path: '', loadChildren: () => import('../home/home.module').then(m => m.HomeModule) },
+      { path: 'patients', loadChildren: () => import('../patients/patients.module').then(m => m.PatientsModule) },
       { path: 'settings', loadChildren: () => import('../settings/settings.module').then(m => m.SettingsModule) },
       { path: '**', redirectTo: '' }
     ]

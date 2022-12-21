@@ -15,3 +15,8 @@ export enum response_status_codes {
   bad_request = 400,
   internal_server_error = 500
 }
+
+export enum Gender {
+  Male = 'Male',
+  Famele = 'Famele'
+}

@@ -1,0 +1,4 @@
+<button class="icon-button" [disabled]="disabled" (click)="doClick($event)" [ngStyle]="style" [ngClass]="{'icon-btn': !label}">
+    <span *ngIf="!label" class="button-icon"><ng-content></ng-content></span>
+    <span class="button-label" *ngIf="label">{{label}}</span>
+</button>

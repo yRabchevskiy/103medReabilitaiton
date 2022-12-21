@@ -1,0 +1,21 @@
+<form [formGroup]="patientForm" (ngSubmit)="onSubmit(patientForm)">
+  <div>
+    <label>Name</label>
+    <input formControlName="name" />
+  </div>
+
+  <ng-container formArrayName="visits">
+    <div *ngFor="let _ of visits.controls; index as i">
+      <ng-container [formGroupName]="i">
+        <div>
+          <label>Diagnosis</label>
+          <input formControlName="diagnosis" />
+          <button (click)="removeVisit(i)">remove</button>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <button (click)="addVisit()">add</button>
+  <button type="submit">Save</button>
+</form>

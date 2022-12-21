@@ -1,3 +1,4 @@
+import { Gender } from "modules/common/model";
 
 export interface IAuthData {
   login: String;
@@ -8,11 +9,6 @@ export enum Role {
   Admin = 'Admin',
   Staff = 'Staff',
   Doctor = 'Doctor',
-}
-
-export enum Gender {
-  Male = 'Male',
-  Famele = 'Famele'
 }
 
 export interface IUser {

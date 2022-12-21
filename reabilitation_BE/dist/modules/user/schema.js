@@ -31,6 +31,7 @@ const schema = new Schema({
     gender: {
         type: String,
         enum: ['Male', 'Famele'],
+        required: false,
         default: 'Male'
     },
     permision: {

@@ -17,9 +17,9 @@ export enum Themes {
 
 export const APP_THEME: ITheme = {
   LIGHT: {
-    '--app-primary': '#fafafa',
-    '--app-p-light': '#ffffff',
-    '--app-p-dark': '#c2c2c2',
+    '--app-primary': '#ffffff',
+    '--app-p-light': '#fafafa',
+    '--app-p-dark': '#ffffff',
     '--app-secondary': '#f4ff81',
     '--app-s-light': '#ffffb3',
     '--app-s-dark': '#bfcc50',
@@ -31,13 +31,13 @@ export const APP_THEME: ITheme = {
   DARK: {
     '--app-primary': '#212121',
     '--app-p-light': '#F5F5F6',
-    '--app-p-dark': '#E1E2E1',
+    '--app-p-dark': '#3e3d46',
     '--app-secondary': '#f4ff81',
     '--app-s-light': '#ffffb3',
     '--app-s-dark': '#bfcc50',
     '--app-p-text': '#ffffff',
     '--app-s-text': '#000000',
-    '--app-box-shadow-color': 'rgb(0 0 0 / 16%)',
+    '--app-box-shadow-color': 'rgb(255, 255, 255 / 16%)',
     '--app-icon-color': '#ffffff'
   },
   PURPLE: {
@@ -64,6 +64,7 @@ export const onSetupAppTheme = (theme?: Themes) => {
 export const onApplyAppTheme = (_theme: string) => {
   const theme: IThemeValue = APP_THEME[_theme as Themes];
   const appStyle = document.documentElement.style;
+  localStorage.setItem(ReabilitationKeys.THEME, _theme);
   Object.keys(theme).forEach(it => {
     appStyle.setProperty(it, theme[it]);
   });

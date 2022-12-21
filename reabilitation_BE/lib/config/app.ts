@@ -1,5 +1,6 @@
 import { CommonRoutes } from './../routes/common_routes';
 import { UserRoutes } from './../routes/user_routes';
+import { PatientRoutes } from './../routes/patient_route';
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import env from '../environment';
@@ -12,11 +13,13 @@ class App {
 
   private common_routes: CommonRoutes = new CommonRoutes();
   private user_routes: UserRoutes = new UserRoutes();
+  private patient_routes: PatientRoutes = new PatientRoutes();
   constructor() {
     this.app = express();
     this.config();
     this.mongoSetup();
     this.user_routes.route(this.app);
+    this.patient_routes.route(this.app);
     // should be the last
     this.common_routes.route(this.app);
   }

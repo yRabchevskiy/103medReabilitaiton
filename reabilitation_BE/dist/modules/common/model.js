@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.response_status_codes = exports.ModificationNote = void 0;
+exports.Gender = exports.response_status_codes = exports.ModificationNote = void 0;
 exports.ModificationNote = {
     modified_on: Date,
     modified_by: String,
@@ -12,3 +12,8 @@ var response_status_codes;
     response_status_codes[response_status_codes["bad_request"] = 400] = "bad_request";
     response_status_codes[response_status_codes["internal_server_error"] = 500] = "internal_server_error";
 })(response_status_codes = exports.response_status_codes || (exports.response_status_codes = {}));
+var Gender;
+(function (Gender) {
+    Gender["Male"] = "Male";
+    Gender["Famele"] = "Famele";
+})(Gender = exports.Gender || (exports.Gender = {}));

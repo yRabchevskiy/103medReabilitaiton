@@ -1,1 +1,23 @@
-<p>home works!</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Birthday</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Role</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <td>{{ user.name.first_name }} {{ user.name.last_name }}</td>
+      <td>{{ user.birthday }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.permision }}</td>
+      <td>{{ user.gender }}</td>
+    </tr>
+  </tbody>
+</table>
+<app-spinner></app-spinner>
