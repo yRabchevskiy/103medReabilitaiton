@@ -16,4 +16,8 @@ export class ApiService {
   getPatients<T>() {
     return this.baseApiService.doGet<IPatient[]>('/patients');
   }
+
+  savePatient(data: IPatient) {
+    return this.baseApiService.doPost<IPatient>('/patient', data);
+  }
 }

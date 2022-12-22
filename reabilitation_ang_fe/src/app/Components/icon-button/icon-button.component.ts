@@ -9,6 +9,7 @@ export class IconButtonComponent {
   @Input() style: Object | undefined = undefined;
   @Input() disabled: boolean = false;
   @Input() label: string | undefined = undefined;
+  @Input() type: 'button' | 'submit' = 'button';
   @Output() onClick = new EventEmitter<string>()
   
   doClick(event: any): void {

@@ -5,6 +5,10 @@ import { PatientsRoutingModule } from './patients-routing.module';
 import { PatientsComponent } from '../patients/patients.component';
 import { CreatePatientFormComponent } from './create-patient-form/create-patient-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TableModule } from 'primeng/table';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
 
 @NgModule({
   declarations: [
@@ -15,7 +19,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     PatientsRoutingModule,
     ComponentsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TableModule,
+    DialogModule,
+    InputTextModule,
+    InputMaskModule
   ]
 })
 export class PatientsModule { }

@@ -32,4 +32,7 @@ export class BaseApiService {
   doGet<T>(url: string, param?: HeaderParams): Observable<IBseApiResponse<T>> {
     return this.http.get<IBseApiResponse<T>>(this.baseUrl + url, this.buildHeaders(param));
   }
+  doPost<T>(url: string, data: any, param?: HeaderParams): Observable<IBseApiResponse<T>> {
+    return this.http.post<IBseApiResponse<T>>(this.baseUrl + url, JSON.stringify(data), this.buildHeaders(param));
+  }
 }

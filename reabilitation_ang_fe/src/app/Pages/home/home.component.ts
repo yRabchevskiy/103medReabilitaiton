@@ -1,6 +1,6 @@
 import { IUser } from 'src/app/Models/user.model';
 import { ApiService } from './../../Api/api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IBseApiResponse } from 'src/app/Api/models';
 
 @Component({
@@ -10,7 +10,7 @@ import { IBseApiResponse } from 'src/app/Api/models';
 })
 export class HomeComponent implements OnInit {
   users: IUser[] = [];
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
     this.apiService.getUsers().subscribe((res: IBseApiResponse<IUser[]>) => {

@@ -1,21 +1,226 @@
-<form [formGroup]="patientForm" (ngSubmit)="onSubmit(patientForm)">
-  <div>
-    <label>Name</label>
-    <input formControlName="name" />
-  </div>
-
-  <ng-container formArrayName="visits">
-    <div *ngFor="let _ of visits.controls; index as i">
-      <ng-container [formGroupName]="i">
-        <div>
-          <label>Diagnosis</label>
-          <input formControlName="diagnosis" />
-          <button (click)="removeVisit(i)">remove</button>
-        </div>
-      </ng-container>
+<form
+  class="form-wrapper-row form-column wh-100"
+  [formGroup]="patientForm"
+  (ngSubmit)="onSubmit(patientForm)"
+>
+  <div class="form-column" *ngIf="formStep === 0">
+    <div
+      class="form-control-wrapper"
+      [ngClass]="{
+        'form-control-error':
+          patientForm.get('name')?.invalid &&
+          (patientForm.get('name')?.dirty || patientForm.get('name')?.touched)
+      }"
+    >
+      <label class="form-label" for="patient_name">Name*</label>
+      <input
+        class="form-input"
+        id="patient_name"
+        type="text"
+        formControlName="name"
+      />
     </div>
-  </ng-container>
-
-  <button (click)="addVisit()">add</button>
-  <button type="submit">Save</button>
+    <div class="form-row">
+      <div
+        class="form-control-wrapper form-control-l"
+        [ngClass]="{
+          'form-control-error':
+            patientForm.get('rank')?.invalid &&
+            (patientForm.get('rank')?.dirty || patientForm.get('rank')?.touched)
+        }"
+      >
+        <label class="form-label" for="patient_rank">Rank*</label>
+        <input
+          class="form-input"
+          id="patient_rank"
+          type="text"
+          formControlName="rank"
+        />
+      </div>
+      <div
+        class="form-control-wrapper form-control-r"
+        [ngClass]="{
+          'form-control-error':
+            patientForm.get('unit')?.invalid &&
+            (patientForm.get('unit')?.dirty || patientForm.get('unit')?.touched)
+        }"
+      >
+        <label class="form-label" for="patient_unit">Unit*</label>
+        <input
+          class="form-input"
+          id="patient_unit"
+          type="text"
+          formControlName="unit"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div
+        class="form-control-wrapper form-control-l"
+        [ngClass]="{
+          'form-control-error':
+            patientForm.get('phone')?.invalid &&
+            (patientForm.get('phone')?.dirty ||
+              patientForm.get('phone')?.touched)
+        }"
+      >
+        <label class="form-label" for="patient_phone">Phone*</label>
+        <input
+          class="form-input"
+          id="patient_phone"
+          type="text"
+          formControlName="phone"
+        />
+      </div>
+      <div
+        class="form-control-wrapper form-control-r"
+        [ngClass]="{
+          'form-control-error':
+            patientForm.get('email')?.invalid &&
+            (patientForm.get('email')?.dirty ||
+              patientForm.get('email')?.touched)
+        }"
+      >
+        <label class="form-label" for="patient_email">Email</label>
+        <input
+          class="form-input"
+          id="patient_email"
+          type="text"
+          formControlName="email"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div
+        class="form-control-wrapper form-control-l"
+        [ngClass]="{
+          'form-control-error':
+            patientForm.get('birthday')?.invalid &&
+            (patientForm.get('birthday')?.dirty ||
+              patientForm.get('birthday')?.touched)
+        }"
+      >
+        <label class="form-label" for="patient_birthday">Birthday*</label>
+        <input
+          class="form-input"
+          id="patient_birthday"
+          type="date"
+          [max]="maxDate"
+          formControlName="birthday"
+        />
+      </div>
+      <div class="form-control-wrapper form-control-r">
+        <label class="form-label" for="patient_gender">Gender</label>
+        <select class="form-input" id="patient_gender" formControlName="gender">
+          <option value="Male">Male</option>
+          <option value="Famele">Famele</option>
+        </select>
+        <!-- <input
+          class="form-input"
+          id="patient_gender"
+          type="text"
+          formControlName="gender"
+        /> -->
+      </div>
+    </div>
+  </div>
+  <div class="form-column" *ngIf="formStep === 1">
+    <ng-container formArrayName="visits">
+      <div class="form-group-wrapper" *ngFor="let _ of visits.controls; index as i">
+        <ng-container [formGroupName]="i">
+          <div
+            class="form-control-wrapper"
+            [ngClass]="{
+              'form-control-error':
+                patientForm.get('date')?.invalid &&
+                (patientForm.get('date')?.dirty ||
+                  patientForm.get('date')?.touched)
+            }"
+          >
+            <label class="form-label" [for]="'patient_date' + i">Date*</label>
+            <input
+              class="form-input"
+              [id]="'patient_date' + i"
+              type="date"
+              [max]="maxDate"
+              formControlName="date"
+            />
+          </div>
+          <div class="form-control-wrapper">
+            <label class="form-label" [for]="'patient_diagnosis' + i"
+              >Diagnosis*</label
+            >
+            <input
+              class="form-input"
+              [id]="'patient_diagnosis' + i"
+              type="text"
+              formControlName="diagnosis"
+            />
+          </div>
+          <div class="form-control-wrapper">
+            <label class="form-label" [for]="'patient_treatment' + i"
+              >Treatment</label
+            >
+            <input
+              class="form-input"
+              [id]="'patient_treatment' + i"
+              type="text"
+              formControlName="treatment"
+            />
+          </div>
+          <div class="form-control-wrapper">
+            <label class="form-label" [for]="'patient_description' + i"
+              >Description</label
+            >
+            <input
+              class="form-input"
+              [id]="'patient_description' + i"
+              type="text"
+              formControlName="description"
+            />
+          </div>
+          <div *ngIf="visits.length >= 2" [ngStyle]="{ margin: '0 0 20px 0' }" class="form-wrapper-row">
+            <app-icon-button
+              class="form-btn m-l-a"
+              (onClick)="removeVisit(i)"
+              [style]="{ width: '200px' }"
+              label="Remove visit"
+            ></app-icon-button>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+    <div [ngStyle]="{ margin: '20px 0' }" class="form-wrapper-row">
+      <app-icon-button
+        class="form-btn m-l-a"
+        (onClick)="addVisit()"
+        [style]="{ width: '200px' }"
+        label="Add visit"
+      ></app-icon-button>
+    </div>
+  </div>
+  <div class="form-wrapper-row m-t-a">
+    <app-icon-button
+      *ngIf="formStep !== 0"
+      class="form-btn m-r-a"
+      (onClick)="onGoPrev()"
+      [style]="{ width: '200px' }"
+      label="Previous"
+    ></app-icon-button>
+    <app-icon-button
+      *ngIf="formStep < 1"
+      class="form-btn m-l-a"
+      (onClick)="onGoNext()"
+      [style]="{ width: '200px' }"
+      label="Next"
+    ></app-icon-button>
+    <app-icon-button
+      type="submit"
+      *ngIf="formStep === 1"
+      class="form-btn m-l-a"
+      [style]="{ width: '200px' }"
+      label="Save"
+      [disabled]="!patientForm.valid"
+    ></app-icon-button>
+  </div>
 </form>

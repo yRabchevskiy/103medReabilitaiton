@@ -27,7 +27,6 @@
     transition: width 0.2s linear;
     background: var(--app-primary);
     z-index: 10;
-    box-shadow: 12px 0px 16px 2px var(--app-box-shadow-color);
     overflow: hidden;
     &.open {
         transition: width 0.2s linear;

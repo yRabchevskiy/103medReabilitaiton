@@ -1,0 +1,83 @@
+@import './general.scss';
+
+.form-wrapper-row {
+    display: flex;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.form-column {
+    @extend .flex-col;
+    width: 100%;
+}
+
+.form-row {
+    @extend .flex-row;
+    width: 100%;
+}
+
+.form-column-50 {
+    @extend .flex-col;
+    width: 50%;
+}
+
+.form-control-wrapper {
+    @extend .flex-col;
+    width: 100%;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.form-control-r {
+    width: calc(50% - 20px);
+    margin-left: 20px;
+}
+
+.form-control-l {
+    width: calc(50% - 20px);
+    margin-right: 20px;
+}
+
+.form-label {
+    color: var(--app-s-text);
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    line-height: 18px;
+}
+
+.form-input {
+    color: var(--app-s-text);
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    padding: 8px 12px;
+    border: 1px solid var(--app-input-color);
+    outline: none;
+    border-radius: 6px;
+    height: 40px;
+    &:hover,
+    &:focus {
+        border-color: var(--app-input-active-color);
+    }
+}
+
+.form-control-error {
+    .form-label {
+        color: var(--app-error);
+    }
+    .form-input {
+        border-color: var(--app-error);
+    }
+}
+
+.form-btn {
+    display: inline-flex;
+}
+
+.form-group-wrapper {
+    border-radius: 6px;
+    border: 1px solid var(--app-input-color);
+    padding: 20px 20px 0 20px;
+    margin-bottom: 20px;
+}
